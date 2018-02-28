@@ -1,4 +1,4 @@
-// The world pixel by pixel 2016
+// The world pixel by pixel 2018
 // Daniel Rozin
 // find edges on a live video
 import processing.video.*;
@@ -26,7 +26,8 @@ void draw() {
       for (int blurX=x- edgeAmount; blurX<=x+ edgeAmount; blurX++) {     // visit every pixel in the neighborhood
         for (int blurY=y- edgeAmount; blurY<=y+ edgeAmount; blurY++) {
           PxPGetPixel(blurX, blurY, ourVideo.pixels, width);     // get the RGB of our pixel and place in RGB globals
-          colorDifference+=dist(R, G, B, thisR, thisG, thisB);        // dist calclates the distance in 3D colorspace beween the center pixel
+         
+          colorDifference+=   dist(R, G, B, thisR, thisG, thisB);        // dist calclates the distance in 3D colorspace beween the center pixel
         }                                                          // and the neighboring pixels and adds to "colorDifference"
       }
       if (colorDifference> mouseX) {

@@ -1,6 +1,8 @@
-// The world pixel by pixel 2016
+// The world pixel by pixel 2018
 // Daniel Rozin
 // make an artistic effect with shapes based on edges in live video
+// move mouse to change the threshold
+// click mouse to clear 
 import processing.video.*;
 
 Capture ourVideo;                                 // variable to hold the video object
@@ -29,8 +31,8 @@ void draw() {
           colorDifference+=dist(R, G, B, thisR, thisG, thisB);         // dist calclates the distance in 3D colorspace beween the center pixel
         }                                                          // and the neighboring pixels and adds to "colorDifference"
       }
-      int threshold = 400;                 
-      if (colorDifference> threshold) {                           // if our pixel is an edge then draw a line
+      int threshold = mouseX;                 
+      if (colorDifference> threshold) {                           // if our pixel is an edge then draw a rect
 
         fill(thisR, thisG, thisB);
         noStroke();

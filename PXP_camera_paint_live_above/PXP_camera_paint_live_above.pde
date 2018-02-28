@@ -1,8 +1,8 @@
-// The world pixel by pixel 2016
+// The world pixel by pixel 2018
 // Daniel Rozin
 // paint with live loops on top of live video
 import processing.video.*;
-PImage[] ourImage = new PImage[100];                     // we'll 100 images to hold all the painted pixels
+PImage[] ourImage = new PImage[100];                     // we'll have 100 images to hold all the painted pixels
 int frameNum=0;                                         // this will count our frame in the loop
 Capture ourVideo;                                 // variable to hold the video object
 void setup() {
