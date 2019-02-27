@@ -1,4 +1,4 @@
-// The world pixel by pixel 2018
+// The world pixel by pixel 2019
 // Daniel Rozin
 // apply a 3x3 convolution
 
@@ -15,7 +15,7 @@ float  matrix[]={
 void setup() {
   size(1000, 800);
   frameRate(120);
-  ourImage= loadImage("http://dreamatico.com/data_images/flowers/flowers-4.jpg");
+  ourImage= loadImage("https://i.ytimg.com/vi/7TQYnZ9He_Q/maxresdefault.jpg");
   ourImage.resize (width, height);
   ourImage.loadPixels();                              // load the pixels array of the image
 }

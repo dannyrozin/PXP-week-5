@@ -1,4 +1,4 @@
-// The world pixel by pixel 2018
+// The world pixel by pixel 2019
 // Daniel Rozin
 // median a live video
 import processing.video.*;
@@ -9,10 +9,12 @@ void setup() {
   frameRate(120);
   ourVideo = new Capture(this, width, height);    // open the capture in the size of the window
   ourVideo.start();                               // start the video
+  noFill();
 }
 
 void draw() {
   if (ourVideo.available())  ourVideo.read();      // get a fresh frame as often as we can
+   ourVideo.filter(GRAY);                          // median really works only in grayscale
   image(ourVideo,0,0);                            // we will be bluring just a circle of pixels, so draw the whole video to the screen
   ourVideo.loadPixels();                     // load the pixels array of the video 
   loadPixels();                              // load the pixels array of the window  
@@ -21,20 +23,22 @@ void draw() {
   for (int x = max(mouseX-100, blurAmount); x<min(mouseX+100, width-blurAmount); x++) {     // looping 100 pixels around the mouse, we have to make sure we wont 
     for (int y = max(mouseY-100, blurAmount); y<min(mouseY+100, height-blurAmount); y++) {  // be accessing pixels outside the bounds of our array
      if (dist(mouseX, mouseY, x, y)< 100) {                       // lets just do a circle radius 100
-        int[] pixArray= new int[0];
+        int[] pixArray= new int[0];                                     // create an empty array of ints
         for (int blurX=x- blurAmount; blurX<=x+ blurAmount; blurX++) {     // visit every pixel in the neighborhood
           for (int blurY=y- blurAmount; blurY<=y+ blurAmount; blurY++) {
             PxPGetPixel(blurX, blurY, ourVideo.pixels, width);     // get the RGB of our pixel and place in RGB globals
-            int pixBrightness= (R+G+B)/3;
+            int pixBrightness= (R+G+B)/3;                          // add the brightness of each pixel into the aray
             pixArray= append(pixArray,pixBrightness);
           }
         }
-        sort(pixArray);
-        PxPSetPixel(x, y, pixArray[pixArray.length/2], pixArray[pixArray.length/2], pixArray[pixArray.length/2], 255, pixels, width);    // sets the R,G,B values to the window
+        pixArray=sort(pixArray);                                  // sort the array 
+        int newValue = pixArray[pixArray.length/2];               // get the median of the array (middle value of)
+        PxPSetPixel(x, y, newValue,newValue,newValue, 255, pixels, width);    // sets the R,G,B values to the window
       }
     }
   }
   updatePixels();                                    //  must call updatePixels oce were done messing with pixels[]
+  ellipse (mouseX, mouseY, 200,200);                  // draw a circle to show the affected area as its a bit subtle
   println (frameRate);
 }
 

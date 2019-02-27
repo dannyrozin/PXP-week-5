@@ -1,4 +1,4 @@
-// The world pixel by pixel 2018
+// The world pixel by pixel 2019
 // Daniel Rozin
 // find edges on a live video
 import processing.video.*;
@@ -13,6 +13,7 @@ void setup() {
 
 void draw() {
   if (ourVideo.available())  ourVideo.read();      // get a fresh frame as often as we can
+  //ourVideo.filter(BLUR,1);                 // blur the video a bit first to get rid of noise
   ourVideo.loadPixels();                     // load the pixels array of the video 
   loadPixels();                              // load the pixels array of the window  
   int edgeAmount = 1;                        // this will do a neighborhood of 9 pixels, 3x3
