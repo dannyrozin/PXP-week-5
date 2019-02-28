@@ -24,6 +24,7 @@ void setup() {
 
 void draw() {
   ourImage.loadPixels();
+  ourVideo.loadPixels();
   if (ourVideo.available())  ourVideo.read();  
   if (mousePressed) {
     for (int x = mouseX-20; x< mouseX+20; x++) {
