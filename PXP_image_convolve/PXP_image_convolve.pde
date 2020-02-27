@@ -1,4 +1,4 @@
-// The world pixel by pixel 2019
+// The world pixel by pixel 2020
 // Daniel Rozin
 // apply a 3x3 convolution
 

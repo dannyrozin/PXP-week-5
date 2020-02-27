@@ -1,4 +1,4 @@
-// The world pixel by pixel 2019
+// The world pixel by pixel 2020
 // Daniel Rozin
 // paint with video
 import processing.video.*;
