@@ -1,4 +1,4 @@
-// The world pixel by pixel 2020
+// The world pixel by pixel 2021
 // Daniel Rozin
 // make an artistic effect with shapes based on edges in live video
 // move mouse to change the threshold
