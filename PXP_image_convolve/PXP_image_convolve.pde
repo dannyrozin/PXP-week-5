@@ -1,16 +1,17 @@
-// The world pixel by pixel 2021
+// The world pixel by pixel 2022
 // Daniel Rozin
 // apply a 3x3 convolution
 
 int R, G, B, A;          // you must have these global varables to use the PxPGetPixel()
 PImage ourImage;
-//float  matrix[]={
- // -0.5, -0.5, -0.5, 
- // -0.5,   5,  -0.5, 
- // -0.5, -0.5, -0.5};  // sharpen  , make sure they all together = plus 1
+
+float  matrix[]={
+  -0.5, -0.5, -0.5, 
+ -0.5,   5,  -0.5, 
+ -0.5, -0.5, -0.5};  // sharpen  , make sure they all together = plus 1
   
- //float matrix[]={ 2,  1,   1,  1,  0, -1,  1,  -1, -3};  // embose 
- float matrix[]={  1.0/9,   1.0/9,    1.0/9,   1.0/9,  1.0/9,  1.0/9,  1.0/9,  1.0/9,  1.0/9};  // blur 
+//float matrix[]={ 2,  1,   1,  1,  0, -1,  1,  -1, -3};  // embose 
+ //float matrix[]={  1.0/9,   1.0/9,    1.0/9,   1.0/9,  1.0/9,  1.0/9,  1.0/9,  1.0/9,  1.0/9};  // blur 
 
 void setup() {
   size(1000, 800);
