@@ -26,7 +26,8 @@ void setup() {
 
 
 void draw() {
-  frameNum = (++frameNum) % 100;                               // increment our frameNum variable up to 100
+  frameNum++;
+  frameNum %= 100;                               // increment our frameNum variable up to 100
   ourImage[frameNum].loadPixels();                             // ourImage[frameNum] is now our active image for this frame
   if (ourVideo.available())  ourVideo.read();  
   if (mousePressed) {
